@@ -19,23 +19,13 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-function calculateTotalMortgage(percent, contribution, amount, date) {
-  let totalAmount;
+function calculateMortgage() {
+    let percent = window.percent.value;
+    let contribution = window.contribution.value;
+    let amount = window.amount.value;
+    let date = new Date(window.date.value);
 
-  // код для задачи №2 писать здесь
-  let percentTest = Number(percent);
-  let contributionTest = Number(contribution);
-  let amountTest = Number(amount);
-  
-    let credit = amount - contribution;
-  let dateMonth = date.getMonth();
-  let dateYear = date.getFullYear();
-  let dateNow = new Date(Date.now());
-  let dateNowMonth = dateNow.getMonth();
-  let dateNowYear = dateNow.getFullYear();
-  let month = (dateYear-dateNowYear)*12+(dateMonth-dateNowMonth);
-  
-  let payment = credit * (percent/12/100 + (percent/12/100 / (((1 + percent/12/100)**month - 1))));
-  totalAmount = payment * month;
-
-return Number(totalAmount.toFixed(2));}
+    let result = calculateTotalMortgage(percent, contribution, amount, date);
+    let span = window.mortageResult;
+    span.textContent = result;
+}
