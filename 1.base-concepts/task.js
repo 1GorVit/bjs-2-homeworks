@@ -19,13 +19,10 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-function calculateMortgage() {
-    let percent = window.percent.value;
-    let contribution = window.contribution.value;
-    let amount = window.amount.value;
-    let date = new Date(window.date.value);
-
-    let result = calculateTotalMortgage(percent, contribution, amount, date);
-    let span = window.mortageResult;
-    span.textContent = result;
+function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+  let P = percent / 100;
+  P = P / 12;
+  let S = amount - contribution;
+  let payment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
+  return Number(parseFloat(payment * countMonths).toFixed(2));
 }
