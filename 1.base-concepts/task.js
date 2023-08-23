@@ -20,7 +20,7 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-function  calculateTotalMortgage(percent, contribution, amount, countMonths) {
+function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let P = percent / 100;
   P = P / 12;
   let S = amount - contribution;
