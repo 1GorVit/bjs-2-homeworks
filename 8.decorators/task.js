@@ -5,7 +5,6 @@ function cachingDecoratorNew(func) {
   function wrapper(...args) {
     const hash = md5(args); // получаем правильный хеш c помощью функции md5
     let objectInCache = cache.find((item) => item.hash === hash); // ищем элемент, хеш которого равен нашему хешу
-    let index = cache.findIndex((arr) => arr.hash === hash);
     if (objectInCache) {
       // если элемент найден
       console.log(`Из кэша: ${cache[index].result}`); // индекс нам известен, по индексу в массиве лежит объект, как получить нужное значение?
